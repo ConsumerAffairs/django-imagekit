@@ -121,9 +121,14 @@ def _extension_to_format(extension):
 
 def _format_to_extension(format):
     if format:
+        candidates = []
         for k, v in Image.EXTENSION.iteritems():
             if v == format.upper():
-                return k
+                candidates.append(k)
+        if '.jpg' in candidates:
+            return '.jpg'
+        elif candidates:
+            return candidates[0]
     return None
 
 

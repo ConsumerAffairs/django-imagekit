@@ -70,6 +70,10 @@ class IKUtilsTest(TestCase):
         with self.assertRaises(utils.UnknownFormatError):
             utils.format_to_extension('TXT')
 
+    def test_format_to_extension_jpeg(self):
+        """ Special case JPEG, so we get a more commmonly used extension """
+        self.assertEqual(utils.format_to_extension('JPEG'), '.jpg')
+
 
 class PickleTest(TestCase):
     def test_source_file(self):
