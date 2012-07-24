@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v2.0.2a-ca01
+------------
+
+- Use .jpg rather than .jpe for default JPEG extension
+
 v2.0.1
 ------
 
