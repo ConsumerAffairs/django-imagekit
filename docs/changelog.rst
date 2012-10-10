@@ -1,10 +1,16 @@
 Changelog
 =========
 
-v2.0.2a-ca01
-------------
+v2.0.2
+------
 
-- Use .jpg rather than .jpe for default JPEG extension
+- Fixed the pickling of ImageSpecFieldFile.
+- Signals are now connected without specifying the class and non-IK models
+  are filitered out in the receivers. This is necessary beacuse of a bug
+  with how Django handles abstract models.
+- Fixed a `ZeroDivisionError` in the Reflection processor.
+- `cStringIO` is now used if it's available.
+- Reflections on images now use RGBA instead of RGB.
 
 v2.0.1
 ------
