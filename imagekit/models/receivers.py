@@ -19,9 +19,10 @@ def post_save_receiver(sender, instance=None, created=False, raw=False, **kwargs
     if not raw:
         old_hashes = instance._ik._source_hashes.copy()
         new_hashes = update_source_hashes(instance)
-        for attname in instance._ik.spec_fields:
-            if old_hashes[attname] != new_hashes[attname]:
-                getattr(instance, attname).invalidate()
+        if not created:
+            for attname in instance._ik.spec_fields:
+                if old_hashes[attname] != new_hashes[attname]:
+                    getattr(instance, attname).invalidate()
 
 
 @ik_model_receiver
